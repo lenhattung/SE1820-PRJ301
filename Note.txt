@@ -18,7 +18,11 @@ Tools:
 - Netbeans 8.2 : https://taimienphi.vn/download-netbean-ide-5221/8.2-phien-ban
 - Tomcat 8.5 : https://archive.apache.org/dist/tomcat/tomcat-8/v8.5.99/bin/
 - Github Desktop
-
 ----
 – Amazon Junior Software Developer Professional Certificate - Cousera certificate
 – Địa chỉ: https://www.coursera.org/professional-certificates/amazon-junior-software-developer
+
+----
+Videos:
+
+Slot1 - https://youtu.be/M_B-V-jiSlI
