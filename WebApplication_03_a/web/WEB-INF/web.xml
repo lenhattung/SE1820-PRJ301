@@ -4,9 +4,17 @@
         <servlet-name>HelloServlet</servlet-name>
         <servlet-class>my_servlet.HelloServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>BangCuuChuongServlet</servlet-name>
+        <servlet-class>my_servlet.BangCuuChuongServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HelloServlet</servlet-name>
         <url-pattern>/HelloServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>BangCuuChuongServlet</servlet-name>
+        <url-pattern>/BangCuuChuongServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
