@@ -59,7 +59,6 @@ public class MainController extends HttpServlet {
             return;
         }
         
-        
         try {
             b = Integer.parseInt(txtB);
             if(b<=0){
@@ -70,6 +69,8 @@ public class MainController extends HttpServlet {
             out.println("b must be interger!");
             return;
         }
+        int result = GCD(a,b);
+        out.println("Greatest Common Divisor("+a+","+b+")="+result);
     }
 
    
