@@ -37,6 +37,31 @@ public class MainController extends HttpServlet {
             return;
         }
         
+        int a = 0;
+        int b = 0;
+        
+        try {
+            a = Integer.parseInt(txtB);
+            if(a<=0){
+                out.println("a must be greater than zero!");
+                return;
+            }
+        } catch (Exception e) {
+            out.println("a must be interger!");
+            return;
+        }
+        
+        
+        try {
+            b = Integer.parseInt(txtB);
+            if(a<=0){
+                out.println("b must be greater than zero!");
+                return;
+            }
+        } catch (Exception e) {
+            out.println("b must be interger!");
+            return;
+        }
     }
 
    
