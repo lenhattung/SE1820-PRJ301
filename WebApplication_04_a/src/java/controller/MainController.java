@@ -41,7 +41,7 @@ public class MainController extends HttpServlet {
         int b = 0;
         
         try {
-            a = Integer.parseInt(txtB);
+            a = Integer.parseInt(txtA);
             if(a<=0){
                 out.println("a must be greater than zero!");
                 return;
@@ -54,7 +54,7 @@ public class MainController extends HttpServlet {
         
         try {
             b = Integer.parseInt(txtB);
-            if(a<=0){
+            if(b<=0){
                 out.println("b must be greater than zero!");
                 return;
             }
