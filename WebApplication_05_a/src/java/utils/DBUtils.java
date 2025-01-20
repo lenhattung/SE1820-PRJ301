@@ -8,6 +8,7 @@ package utils;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -32,6 +33,14 @@ public class DBUtils {
         try {
             Connection conn = getConnection();
             System.out.println(conn);
+            
+            // 
+            String sql = "INSERT INTO products(product_id, product_name, price, category, stock_quantity) "
+                    + " VALUES (11, N'Máy ảnh Sony A7 III', 4590000, N'Máy ảnh', 15) ";
+            
+            Statement st = conn.createStatement();
+            int i = st.executeUpdate(sql);
+            System.out.println(i);
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(DBUtils.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
