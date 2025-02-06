@@ -60,12 +60,40 @@ public class UserDAO implements IDAO<UserDTO, String> {
 
     @Override
     public boolean update(UserDTO entity) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String sql = "UPDATE [tblUsers] SET "
+                + "[fullName] = N'" + entity.getFullName() + "', "
+                + "[roleID] = N'" + entity.getRoleID() + "', "
+                + "[password] = N'" + entity.getPassword() + "' "
+                + "WHERE [userID] = N'" + entity.getUserID() + "'";
+        Connection conn;
+        try {
+            conn = DBUtils.getConnection();
+            Statement st = conn.createStatement();
+            int n = st.executeUpdate(sql);
+            return n > 0;
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
     }
 
     @Override
     public boolean delete(String id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String sql = "DELETE FROM [tblUsers] WHERE [userID] = N'" + id + "'";
+        Connection conn;
+        try {
+            conn = DBUtils.getConnection();
+            Statement st = conn.createStatement();
+            int n = st.executeUpdate(sql);
+            return n > 0;
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
     }
 
     @Override
