@@ -51,7 +51,7 @@ public class MainController extends HttpServlet {
         String url = LOGIN_PAGE;
         try {
             String action = request.getParameter("action");
-            System.out.println(action);
+            System.out.println("action: "+ action);
             if (action == null) {
                 url = LOGIN_PAGE;
             } else {
