@@ -12,7 +12,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <form action="MainController" method="get">
+        <form action="MainController" method="post">
             <input type="hidden" name="action" value="login" />
             UserID <input type="text" name="txtUserID"/><br/>
             Password <input type="password" name="txtPassword"/><br/>

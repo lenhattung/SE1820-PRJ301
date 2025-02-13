@@ -33,14 +33,8 @@ public class MainController extends HttpServlet {
 
     public boolean isValidLogin(String strUserID, String strPassword) {
         UserDTO user = getUser(strUserID);
-//        if(user!=null && user.getPassword().equals(strPassword)){
-//            return true;
-//        }else{
-//            return false;
-//        }
-
         System.out.println(user);
-        System.out.println(user.getPassword());
+//        System.out.println(user.getPassword());
         System.out.println(strPassword);
         return user != null && user.getPassword().equals(strPassword);
     }
@@ -60,13 +54,14 @@ public class MainController extends HttpServlet {
                     String strPassword = request.getParameter("txtPassword");
                     if(isValidLogin(strUserID, strPassword)){
                         url ="search.jsp";
+                        UserDTO user = getUser(strUserID);
+                        request.setAttribute("user", user);
                     }else{
                         url ="invalid.jsp";
                     }
                 }
             }
         } catch (Exception e) {
-            e.printStackTrace();
             log("Error at MainController: " + e.toString());
         } finally {
             RequestDispatcher rd = request.getRequestDispatcher(url);

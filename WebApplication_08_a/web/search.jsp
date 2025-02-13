@@ -4,6 +4,7 @@
     Author     : tungi
 --%>
 
+<%@page import="dto.UserDTO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -12,8 +13,10 @@
         <title>JSP Page</title>
     </head>
     <body> 
-        
-        <h1> Welcome .... </h1>
+        <%
+            UserDTO user = (UserDTO)request.getAttribute("user");
+        %>
+        <h1> Welcome <%=user.getFullName()%> </h1>
         
         <form action="#">
             Search Value: <input type="submit" name="txtSearchValue"/><br/>
