@@ -141,27 +141,34 @@ public class UserDAO implements IDAO<UserDTO, String> {
     public List<UserDTO> search(String searchTerm) {
         List<UserDTO> list = new ArrayList<>();
         String sql = "SELECT [userID], [fullName], [roleID], [password] FROM [tblUsers] "
-                + "WHERE [userID] LIKE N'%" + searchTerm + "%' "
-                + "OR [fullName] LIKE N'%" + searchTerm + "%' "
-                + "OR [roleID] LIKE N'%" + searchTerm + "%'";
-        try {
-            Connection conn = DBUtils.getConnection();
-            Statement st = conn.createStatement();
-            ResultSet rs = st.executeQuery(sql);
-            while (rs.next()) {
-                UserDTO user = new UserDTO(
-                        rs.getString("userID"),
-                        rs.getString("fullName"),
-                        rs.getString("roleID"),
-                        rs.getString("password")
-                );
-                list.add(user);
+                + "WHERE [userID] LIKE ? "
+                + "OR [fullName] LIKE ? "
+                + "OR [roleID] LIKE ?";
+
+        try (Connection conn = DBUtils.getConnection();
+                PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
+            String searchPattern = "%" + searchTerm + "%";
+            // Thiết lập giá trị cho tất cả các tham số
+            pstmt.setString(1, searchPattern);
+            pstmt.setString(2, searchPattern);
+            pstmt.setString(3, searchPattern);
+
+            try (ResultSet rs = pstmt.executeQuery()) {
+                while (rs.next()) {
+                    UserDTO user = new UserDTO(
+                            rs.getString("userID"),
+                            rs.getString("fullName"),
+                            rs.getString("roleID"),
+                            rs.getString("password")
+                    );
+                    list.add(user);
+                }
             }
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
+        } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
+
         return list;
     }
 
