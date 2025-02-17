@@ -17,7 +17,7 @@
             UserDTO user = (UserDTO)request.getAttribute("user");
         %>
         <h1> Welcome <%=user.getFullName()%> </h1>
-        
+        <a href="MainController?action=logout">Log out</a>
         <form action="#">
             Search Value: <input type="submit" name="txtSearchValue"/><br/>
             <input type="submit" name="Search"/>

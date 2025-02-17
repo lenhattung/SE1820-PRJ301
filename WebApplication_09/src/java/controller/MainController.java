@@ -59,6 +59,9 @@ public class MainController extends HttpServlet {
                     }else{
                         url ="invalid.jsp";
                     }
+                }else  if (action.equals("logout")) {
+                    request.setAttribute("user", null);
+                    url = "logout_confirm.jsp";
                 }
             }
         } catch (Exception e) {
