@@ -12,11 +12,15 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <form action="MainController" method="post">
-            <input type="hidden" name="action" value="login" />
-            UserID <input type="text" name="txtUserID"/><br/>
-            Password <input type="password" name="txtPassword"/><br/>
-            <input type="submit" value="Login"/>
-        </form>
+        <%@include file="header.jsp" %>
+        <div style="min-height: 500px; padding: 10px">
+            <form action="MainController" method="post">
+                <input type="hidden" name="action" value="login" />
+                UserID <input type="text" name="txtUserID"/><br/>
+                Password <input type="password" name="txtPassword"/><br/>
+                <input type="submit" value="Login"/>
+            </form>
+        </div>
+        <jsp:include page="footer.jsp"/>
     </body>
 </html>
