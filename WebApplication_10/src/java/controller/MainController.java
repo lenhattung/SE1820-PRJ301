@@ -5,10 +5,13 @@
  */
 package controller;
 
+import dao.BookDAO;
 import dao.UserDAO;
+import dto.BookDTO;
 import dto.UserDTO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -63,6 +66,12 @@ public class MainController extends HttpServlet {
                 }else  if (action.equals("logout")) {
                     request.getSession().invalidate(); // Hủy bỏ session
                     url = "login.jsp";
+                }else  if (action.equals("search")) {
+                    BookDAO bdao = new BookDAO();
+                    String searchTerm = request.getParameter("searchTerm");
+                    List<BookDTO> books = bdao.searchByTitle(searchTerm);
+                    request.setAttribute("books", books);
+                    url = "search.jsp";
                 }
             }
         } catch (Exception e) {
