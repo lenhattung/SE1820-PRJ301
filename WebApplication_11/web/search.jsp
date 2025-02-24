@@ -118,7 +118,7 @@
                         <td><%=b.getPublishYear()%></td>
                         <td><%=b.getPrice()%></td>
                         <td><%=b.getQuantity()%></td>
-                        <td><a href="MainController?action=delete&id=<%=b.getBookID()%>">
+                        <td><a href="MainController?action=delete&id=<%=b.getBookID()%>&searchTerm=<%=searchTerm%>">
                                 <img src="assets/images/delete-icon.png" style="height: 25px"/>
                                 
                             </a></td>
