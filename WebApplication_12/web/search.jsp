@@ -80,16 +80,20 @@
             </form>
 
             <br/>
-            
+
             <%
-                String searchTerm = request.getAttribute("searchTerm")+"";
-                searchTerm= searchTerm.equals("null")?"":searchTerm;
+                String searchTerm = request.getAttribute("searchTerm") + "";
+                searchTerm = searchTerm.equals("null") ? "" : searchTerm;
             %>
             <form action="MainController">
                 <input type="hidden" name="action" value="search"/>
                 Search Books: <input type="text" name="searchTerm" value="<%=searchTerm%>"/>
                 <input type="submit" value="Search"/>
             </form>
+
+            <a href="bookForm.jsp">
+                Add
+            </a>
 
             <%
                 if (request.getAttribute("books") != null) {
@@ -120,7 +124,7 @@
                         <td><%=b.getQuantity()%></td>
                         <td><a href="MainController?action=delete&id=<%=b.getBookID()%>&searchTerm=<%=searchTerm%>">
                                 <img src="assets/images/delete-icon.png" style="height: 25px"/>
-                                
+
                             </a></td>
                     </tr>
                     <%

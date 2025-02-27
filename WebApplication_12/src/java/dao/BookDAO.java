@@ -17,11 +17,28 @@ import utils.DBUtils;
  *
  * @author tungi
  */
-public class BookDAO implements IDAO<BookDTO, String>{
+public class BookDAO implements IDAO<BookDTO, String> {
 
     @Override
     public boolean create(BookDTO entity) {
-         return false;
+        String sql = "INSERT INTO tblBooks "
+                + " (BookID, Title,Author,PublishYear,Price,Quantity) "
+                + " VALUES (?, ?, ?, ?, ?, ?) ";
+        try {
+            Connection conn = DBUtils.getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, entity.getBookID());
+            ps.setString(2, entity.getTitle());
+            ps.setString(3, entity.getAuthor());
+            ps.setInt(4, entity.getPublishYear());
+            ps.setDouble(5, entity.getPrice());
+            ps.setInt(6, entity.getQuantity());
+            int i = ps.executeUpdate();
+            return i > 0;
+        } catch (Exception e) {
+            System.out.println(e.toString());
+        }
+        return false;
     }
 
     @Override
@@ -48,25 +65,25 @@ public class BookDAO implements IDAO<BookDTO, String>{
     public List<BookDTO> search(String searchTerm) {
         return null;
     }
-    
+
     public List<BookDTO> searchByTitle(String searchTerm) {
         String sql = "SELECT * FROM tblBooks WHERE title LIKE ?";
         List<BookDTO> list = new ArrayList<BookDTO>();
-        
+
         try {
             Connection conn = DBUtils.getConnection();
             PreparedStatement ps = conn.prepareStatement(sql);
-            ps.setString(1, "%"+searchTerm+"%");
+            ps.setString(1, "%" + searchTerm + "%");
             ResultSet rs = ps.executeQuery();
-            while(rs.next()){
+            while (rs.next()) {
                 BookDTO b = new BookDTO(
-                        rs.getString("BookID"), 
-                        rs.getString("Title"), 
-                        rs.getString("Author"), 
-                        rs.getInt("PublishYear"), 
-                        rs.getDouble("Price"), 
+                        rs.getString("BookID"),
+                        rs.getString("Title"),
+                        rs.getString("Author"),
+                        rs.getInt("PublishYear"),
+                        rs.getDouble("Price"),
                         rs.getInt("Quantity"));
-                
+
                 list.add(b);
             }
         } catch (Exception e) {
@@ -74,24 +91,25 @@ public class BookDAO implements IDAO<BookDTO, String>{
         }
         return list;
     }
-     public List<BookDTO> searchByTitle2(String searchTerm) {
+
+    public List<BookDTO> searchByTitle2(String searchTerm) {
         String sql = "SELECT * FROM tblBooks WHERE title LIKE ? AND Quantity>0";
         List<BookDTO> list = new ArrayList<BookDTO>();
-        
+
         try {
             Connection conn = DBUtils.getConnection();
             PreparedStatement ps = conn.prepareStatement(sql);
-            ps.setString(1, "%"+searchTerm+"%");
+            ps.setString(1, "%" + searchTerm + "%");
             ResultSet rs = ps.executeQuery();
-            while(rs.next()){
+            while (rs.next()) {
                 BookDTO b = new BookDTO(
-                        rs.getString("BookID"), 
-                        rs.getString("Title"), 
-                        rs.getString("Author"), 
-                        rs.getInt("PublishYear"), 
-                        rs.getDouble("Price"), 
+                        rs.getString("BookID"),
+                        rs.getString("Title"),
+                        rs.getString("Author"),
+                        rs.getInt("PublishYear"),
+                        rs.getDouble("Price"),
                         rs.getInt("Quantity"));
-                
+
                 list.add(b);
             }
         } catch (Exception e) {
@@ -107,7 +125,7 @@ public class BookDAO implements IDAO<BookDTO, String>{
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString(1, id);
             int i = ps.executeUpdate();
-            return i>0;
+            return i > 0;
         } catch (Exception e) {
             System.out.println(e.toString());
         }

@@ -47,7 +47,7 @@ public class MainController extends HttpServlet {
     public void search(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String searchTerm = request.getParameter("searchTerm");
-        if(searchTerm==null){
+        if (searchTerm == null) {
             searchTerm = "";
         }
         List<BookDTO> books = bookDAO.searchByTitle2(searchTerm);
@@ -92,6 +92,41 @@ public class MainController extends HttpServlet {
                     // search
                     search(request, response);
                     url = "search.jsp";
+                } else if (action.equals("add")) {
+                    try {
+                        boolean checkError = false;
+
+                        String bookID = request.getParameter("txtBookID");
+                        String title = request.getParameter("txtTitle");
+                        String author = request.getParameter("txtAuthor");
+                        int publishYear = Integer.parseInt(request.getParameter("txtPublishYear"));
+                        double price = Double.parseDouble(request.getParameter("txtPrice"));
+                        int quantity = Integer.parseInt(request.getParameter("txtQuantity"));
+
+                        if (bookID == null || bookID.trim().isEmpty()) {
+                            checkError = true;
+                            request.setAttribute("txtBookID_error", "Book ID cannot be empty.");
+                        }
+
+                        if (quantity < 0) {
+                            checkError = true;
+                            request.setAttribute("txtQuantity_error", "Quantity >=0.");
+                        }
+
+                        BookDTO book = new BookDTO(bookID, title, author, publishYear, price, quantity);
+
+                        if (!checkError) {
+                            bookDAO.create(book);
+                            // search
+                            search(request, response);
+                            url = "search.jsp";
+                        } else {
+                            url = "bookForm.jsp";
+                            request.setAttribute("book", book);
+                        }
+                    } catch (Exception e) {
+                    }
+
                 }
             }
         } catch (Exception e) {
