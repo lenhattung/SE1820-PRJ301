@@ -132,7 +132,7 @@
                 margin-right: 5px;
                 font-weight: bold;
             }
-            
+
             /* Responsive design */
             @media screen and (max-width: 600px) {
                 .book-table {
@@ -157,7 +157,7 @@
                 String searchTerm = request.getAttribute("searchTerm") + "";
                 searchTerm = searchTerm.equals("null") ? "" : searchTerm;
             %>
-           <div class="search-section">
+            <div class="search-section">
                 <form action="MainController">
                     <input type="hidden" name="action" value="search"/>
                     <label for="searchInput">Search Books:</label>
@@ -165,10 +165,15 @@
                     <input type="submit" value="Search" class="search-btn"/>
                 </form>
             </div>
-
+            <% if (session.getAttribute("user") != null) {
+                    UserDTO user1 = (UserDTO) session.getAttribute("user");
+                    if (user1.getRoleID().equals("AD")) {
+            %>
             <a href="bookForm.jsp" class="add-btn">
                 Add New Book    
-            </a>    
+            </a> 
+            <%}
+                }%>
 
             <%
                 if (request.getAttribute("books") != null) {
@@ -184,7 +189,13 @@
                         <th>PublishYear</th>
                         <th>Price</th>
                         <th>Quantity</th>
+                            <% if (session.getAttribute("user") != null) {
+                                    UserDTO user1 = (UserDTO) session.getAttribute("user");
+                                    if (user1.getRoleID().equals("AD")) {
+                            %>
                         <th>Action</th>
+                            <%}
+                             }%>
                     </tr>
                 </thead>
                 <tbody>
@@ -197,10 +208,17 @@
                         <td><%=b.getPublishYear()%></td>
                         <td><%=b.getPrice()%></td>
                         <td><%=b.getQuantity()%></td>
+                        <% if (session.getAttribute("user") != null) {
+                                UserDTO user1 = (UserDTO) session.getAttribute("user");
+                                if (user1.getRoleID().equals("AD")) {
+                        %>
                         <td><a href="MainController?action=delete&id=<%=b.getBookID()%>&searchTerm=<%=searchTerm%>">
                                 <img src="assets/images/delete-icon.png" style="height: 25px"/>
 
                             </a></td>
+
+                        <%}
+                                }%>
                     </tr>
                     <%
                         }
