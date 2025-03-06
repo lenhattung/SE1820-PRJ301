@@ -151,78 +151,62 @@
     <body> 
         <%@include file="header.jsp" %>
         <div style="min-height: 500px; padding: 10px">
-            <%                if (session.getAttribute("user") != null) {
-                    UserDTO user = (UserDTO) session.getAttribute("user");
-            %>
+            <c:if test="${not empty sessionScope.user}">
+                <c:set var="searchTerm" value="${requestScope.searchTerm==null?'':requestScope.searchTerm}" />
+                <div class="search-section">
+                    <form action="MainController">
+                        <input type="hidden" name="action" value="search"/>
+                        <label for="searchInput">Search Books:</label>
+                        <input type="text" id="searchInput" name="searchTerm" value="${searchTerm}" class="search-input" placeholder="Enter book title, author or ID..."/>
+                        <input type="submit" value="Search" class="search-btn"/>
+                    </form>
+                </div>
+                <c:set var="isAdmin" value="<%=AuthUtils.isAdmin(session)%>" />
+                <c:if test="${isAdmin}">
+                    <a href="bookForm.jsp" class="add-btn">
+                        Add New Book    
+                    </a> 
+                </c:if>
 
-            <%
-                String searchTerm = request.getAttribute("searchTerm") + "";
-                searchTerm = searchTerm.equals("null") ? "" : searchTerm;
-            %>
-            <div class="search-section">
-                <form action="MainController">
-                    <input type="hidden" name="action" value="search"/>
-                    <label for="searchInput">Search Books:</label>
-                    <input type="text" id="searchInput" name="searchTerm" value="<%=searchTerm%>" class="search-input" placeholder="Enter book title, author or ID..."/>
-                    <input type="submit" value="Search" class="search-btn"/>
-                </form>
-            </div>
-            <% if (AuthUtils.isAdmin(session)) {
-            %>
-            <a href="bookForm.jsp" class="add-btn">
-                Add New Book    
-            </a> 
-            <%}%>
+                <c:if test="${not empty requestScope.books}">
+                    <table class="book-table">
+                        <thead>
+                            <tr>
+                                <th>BookID</th>
+                                <th>Title</th>
+                                <th>Author</th>
+                                <th>PublishYear</th>
+                                <th>Price</th>
+                                <th>Quantity</th>
+                                    <c:if test="${isAdmin}">
+                                    <th>Action</th>
+                                    </c:if>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <c:forEach var="b" items="${requestScope.books}">
+                                <tr>
+                                    <td>${b.bookID}</td>
+                                    <td>${b.title}</td>
+                                    <td>${b.author}</td>
+                                    <td>${b.publishYear}</td>
+                                    <td>${b.price}</td>
+                                    <td>${b.quantity}</td>
+                                    <c:if test="${isAdmin}">
+                                        <td><a href="MainController?action=delete&id=${b.bookID}&searchTerm=${searchTerm}">
+                                                <img src="assets/images/delete-icon.png" style="height: 25px"/>
 
-            <%
-                if (request.getAttribute("books") != null) {
-                    List<BookDTO> books = (List<BookDTO>) request.getAttribute("books");
-
-            %>
-            <table class="book-table">
-                <thead>
-                    <tr>
-                        <th>BookID</th>
-                        <th>Title</th>
-                        <th>Author</th>
-                        <th>PublishYear</th>
-                        <th>Price</th>
-                        <th>Quantity</th>
-                        <% if (AuthUtils.isAdmin(session)) {
-                            %>
-                        <th>Action</th>
-                            <%}%>
-                    </tr>
-                </thead>
-                <tbody>
-                    <%            for (BookDTO b : books) {
-                    %>
-                    <tr>
-                        <td><%=b.getBookID()%></td>
-                        <td><%=b.getTitle()%></td>
-                        <td><%=b.getAuthor()%></td>
-                        <td><%=b.getPublishYear()%></td>
-                        <td><%=b.getPrice()%></td>
-                        <td><%=b.getQuantity()%></td>
-                        <% 
-                            if (AuthUtils.isAdmin(session)) {
-                        %>
-                        <td><a href="MainController?action=delete&id=<%=b.getBookID()%>&searchTerm=<%=searchTerm%>">
-                                <img src="assets/images/delete-icon.png" style="height: 25px"/>
-
-                            </a></td>
-
-                        <%}%>
-                    </tr>
-                    <%
-                        }
-                    %>
-                </tbody>
-            </table>
-            <%    }
-            } else { %>
-            You do not have permission to access this content.
-            <%}%>
+                                            </a></td>
+                                    </c:if>
+                                </tr>
+                            </c:forEach>
+                        </tbody>
+                    </table>
+                </c:if>
+                <c:if test="${not isAdmin}">
+                    You do not have permission to access this content.
+                </c:if>
+            </c:if>
         </div>
         <jsp:include page="footer.jsp"/>
     </body>
