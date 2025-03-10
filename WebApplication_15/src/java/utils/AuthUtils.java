@@ -27,7 +27,7 @@ public class AuthUtils {
     public static boolean isValidLogin(String strUserID, String strPassword) {
         UserDTO user = getUser(strUserID);
         System.out.println(user);
-        return user != null && user.getPassword().equals(strPassword);
+        return user != null && util.PasswordUtils.checkPassword(strPassword, user.getPassword());
     }
 
     public static boolean isLoggedIn(HttpSession session) {
