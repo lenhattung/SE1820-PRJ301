@@ -46,6 +46,6 @@ public class AuthUtils {
             return false;
         }
         UserDTO user = getUser(session);
-        return user.getRoleID().equals(ADMIN_ROLE);
+        return user.getRoleId().equals(ADMIN_ROLE);
     }
 }
