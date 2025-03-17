@@ -2,18 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/D:/OneDrive/Teaching/FPT/PRJ301/github/SE1820-PRJ301/SE1820-PRJ301/WebApplication_16_b/web/assets/css/register.css</file>
-            <file>file:/D:/OneDrive/Teaching/FPT/PRJ301/github/SE1820-PRJ301/SE1820-PRJ301/WebApplication_16_b/src/java/dao/UserDAO.java</file>
-            <file>file:/D:/OneDrive/Teaching/FPT/PRJ301/github/SE1820-PRJ301/SE1820-PRJ301/WebApplication_16_b/src/java/dao/IDAO.java</file>
-            <file>file:/D:/OneDrive/Teaching/FPT/PRJ301/github/SE1820-PRJ301/SE1820-PRJ301/WebApplication_16_b/web/user/register.jsp</file>
-            <file>file:/D:/OneDrive/Teaching/FPT/PRJ301/github/SE1820-PRJ301/SE1820-PRJ301/WebApplication_16_b/web/bookForm.jsp</file>
-            <file>file:/D:/OneDrive/Teaching/FPT/PRJ301/github/SE1820-PRJ301/SE1820-PRJ301/WebApplication_16_b/src/java/utils/AuthUtils.java</file>
-            <file>file:/D:/OneDrive/Teaching/FPT/PRJ301/github/SE1820-PRJ301/SE1820-PRJ301/WebApplication_16_b/src/java/controller/UserController.java</file>
-            <file>file:/D:/OneDrive/Teaching/FPT/PRJ301/github/SE1820-PRJ301/SE1820-PRJ301/WebApplication_16_b/src/java/utils/DBUtils.java</file>
-            <file>file:/D:/OneDrive/Teaching/FPT/PRJ301/github/SE1820-PRJ301/SE1820-PRJ301/WebApplication_16_b/src/java/controller/MainController.java</file>
-            <file>file:/D:/OneDrive/Teaching/FPT/PRJ301/github/SE1820-PRJ301/SE1820-PRJ301/WebApplication_16_b/src/java/dto/UserDTO.java</file>
-            <file>file:/D:/OneDrive/Teaching/FPT/PRJ301/github/SE1820-PRJ301/SE1820-PRJ301/WebApplication_16_b/src/java/utils/EmailUtils.java</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>
