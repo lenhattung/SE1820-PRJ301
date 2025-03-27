@@ -1,0 +1,14 @@
+https://topdev.vn/blog/restful-api-la-gi/
+https://www.google.com/search?sca_esv=cfaaa28257c63847&sxsrf=AHTn8zp5cP2hYPegmjoqxfGAE0BvjJeTAA:1742778404073&q=servlet+life+cycle&udm=2&fbs=ABzOT_AfCikcO6SgGMxZXxAG9tmS8rx53CbgOCSVg3O9Xo5xAK_RXi3VFy8QcDJV9F46BNULQzyKYtJVD12t4SycQmX-JNYkXDNqdb7PAtlMgRKErrHlXG-lmc-_f30bkE7lCkBx-m4XoOxXEHODZVy05As8vjCKTxWerjUVrY1unfQ45rkuAFCnGA-S88BWebKvhIZoczFEJPRvxexjcJo_2kHLV1sBHJxo9HKFoTjApfeWD4no84X8sMShcgslzKY2DEFyCm1c&sa=X&ved=2ahUKEwj4tsm9w6GMAxWkzDgGHQ_lJ_IQtKgLegQIEhAB&biw=1225&bih=596&dpr=1.5#vhid=zguoNHORjN-YcM&vssid=mosaic
+https://www.geeksforgeeks.org/life-cycle-of-a-servlet/
+https://viettuts.vn/jsp/vong-doi-cua-jsp
+https://en.wikipedia.org/wiki/Multitier_architecture
+https://www.google.com/search?sca_esv=4ad496d1768baf99&sxsrf=AHTn8zqsn2mb-IP59FuwiGdmYcVoAdKcqA:1742780581796&q=m%C3%B4+h%C3%ACnh+3+t%E1%BA%A7ng&udm=2&fbs=ABzOT_AfCikcO6SgGMxZXxAG9tmS8rx53CbgOCSVg3O9Xo5xAK_RXi3VFy8QcDJV9F46BNWNfDNKRV0htK75CNwSotE36UZ0FXgRqkzAL9dS6NPh0A5r1ex2DzdM99TBoPJZQ0S5FqDNecxoijuSVlLetDEeYzNYEgjEOjqWs6nTa2o6u8rl_GhT78bds-AKWbofKBK-Z3JidPr258EP_8z_hQ1DwrkOP6urlbnPsS64cr3CpybpLCWjX6eIl1r-Mfh5sr9W-AZQ&sa=X&ved=2ahUKEwjJhP_Ly6GMAxWFw6ACHatyN0wQtKgLegQIFBAB&biw=1225&bih=596&dpr=1.5#vhid=SJL-6sCHxhex6M&vssid=mosaic
+https://codelearn.io/sharing/mo-hinh-3-lop-dung-de-lam-gi
+https://www.geeksforgeeks.org/servlet-context-event-and-context-listener/
+https://www.tutorialspoint.com/jsp/jsp_standard_tag_library.htm
+https://www.tutorialspoint.com/jsp/jstl_format_bundle_tag.htm
+https://vietjack.com/jsp/thu_vien_the_chuan_trong_jsp.jsp#google_vignette
+https://www.tutorialspoint.com/jsp/jsp_standard_tag_library.htm
+https://www.geeksforgeeks.org/servlet-context-event-and-context-listener/
+https://vietjack.com/jsp/expression_language_trong_jsp.jsp#google_vignette
